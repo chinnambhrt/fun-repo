@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+
+  const [name,setName] = useState('');
+
+
+  const onNameChange=(e)=>{
+    setName(e.target.value);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input type="text" placeholder='Type your name' onChange={onNameChange} style={{marginTop:'20%',padding:'10px',fontSize:'18px'}}/>
+      <button onClick={()=>{alert(name)}}
+      style={{display:'block',marginTop:'2%', borderRadius:'3px',
+      margin:'2% auto',padding:'10px 23px', backgroundColor:'lightgrey', border:'none',outlineColor:'black'}}
+      >OK</button>
     </div>
   );
 }
